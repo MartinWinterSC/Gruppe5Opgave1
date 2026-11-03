@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Indstil dine tøjpræferencer i Min vejr ven">
+    <meta name="author" content="Gruppe 5">
+    <title>Min profil – Min vejr ven</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/script.js" defer></script>
+</head>
+<body>
+    <header class="top profil-top">
+        <a href="index.html" class="tilbage-link">
+            <i class="fa-solid fa-chevron-left"></i>
+        </a>
+        <h1>Min profil</h1>
+    </header>
+
+    <main>
+        <form class="profil">
+            <img class="profilbillede" src="./assets/img/pictures/profilbillede.png" alt="Profilbillede">
+
+            <!-- Navn -->
+            <div class="boks">
+                <div class="felt-raekke">
+                    <label for="navn">Navn:</label>
+                    <input type="text" id="navn" name="navn" class="felt" value="Maja">
+                </div>
+            </div>
+
+            <!-- Temperaturfølelse -->
+            <div class="boks">
+                <h2>Din temperaturfølelse</h2>
+                <div class="temp-grid">
+                    <div>
+                        <label for="koldt" class="temp-label">Jeg synes, det er koldt under</label>
+                        <div class="temp-felt">
+                            <input type="number" id="koldt" name="koldt" class="felt lille" value="10" min="-20" max="30">
+                            <span>grader</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="varmt" class="temp-label">Jeg synes, det er varmt over</label>
+                        <div class="temp-felt">
+                            <input type="number" id="varmt" name="varmt" class="felt lille" value="20" min="0" max="40">
+                            <span>grader</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tøjstil -->
+            <section class="sektion">
+                <h2>Tøjstil og tilbehør:</h2>
+
+                <ul class="tags">
+                    <li class="tag">Lange bukser</li>
+                    <li class="tag">Shorts</li>
+                    <li class="tag">Gummistøvler</li>
+                    <li class="tag">Vanter</li>
+                    <li class="tag">Paraply</li>
+                </ul>
+
+                <details class="tilfoej">
+                    <summary class="knap sekundaer">
+                        Tilføj mere tøj <i class="fa-solid fa-plus"></i>
+                    </summary>
+                    <div class="tilfoej-indhold">
+                        <p class="hjaelp">Sæt flueben ved det tøj, du vil have forslag til:</p>
+                        <div class="chips">
+                            <label class="chip"><input type="checkbox" name="toej" value="nederdel"><span>Nederdel</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="t-shirt"><span>T-shirt</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="kjole"><span>Kjole</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="sandaler"><span>Sandaler</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="solbriller"><span>Solbriller</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="kasket"><span>Kasket</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="langaermet-bluse"><span>Langærmet bluse</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="let-jakke"><span>Let jakke</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="sneakers"><span>Sneakers</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="sweater"><span>Sweater</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="vinterjakke"><span>Vinterjakke</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="hue"><span>Hue</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="halstoerklaede"><span>Halstørklæde</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="vinterstoevler"><span>Vinterstøvler</span></label>
+                            <label class="chip"><input type="checkbox" name="toej" value="regnjakke"><span>Regnjakke</span></label>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+            <button type="submit" class="knap primaer">
+                Gem dine valg <i class="fa-solid fa-floppy-disk"></i>
+            </button>
+        </form>
+    </main>
+</body>
+</html>

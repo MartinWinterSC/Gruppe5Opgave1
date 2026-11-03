@@ -1,19 +1,51 @@
-/* defaults */
-* {
-    margin: 0;
-}
-
+/* =========================================
+   1. VARIABLER
+   ========================================= */
 :root {
+    /* Farver */
     --lys-blaa: #DCECFF;
     --blaa: #4276B7;
     --tekst: #1f1f1f;
     --grøn: #358B95;
-    --skrift-overskrift: "Libre Baskerville", Georgia, serif;
-    --kant: #5a8f97;
+    --grøn-mørk: #2a737b;
+    --gul: #FFD34E;
+
+    /* Skrift */
+    --skrift: "Libre Baskerville", Georgia, serif;
+
+    /* Typografisk skala */
+    --str-h1: 3rem;
+    --str-h2: 1.4rem;
+    --str-p: 1.2rem;
+    --str-lille: 1rem;
+
+    /* Særlige størrelser */
+    --str-hilsen: 2.5rem;
+    --str-temperatur: 3.5rem;
+    --str-ikon: 2rem;
+    --str-knap: 1.4rem;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    text-wrap: balance;
+/* Mobil: kun størrelserne ændres */
+@media (max-width: 600px) {
+    :root {
+        --str-h1: 2.2rem;
+        --str-h2: 1.2rem;
+        --str-p: 1rem;
+        --str-lille: 0.85rem;
+        --str-hilsen: 1.5rem;
+        --str-temperatur: 2.4rem;
+        --str-ikon: 1.5rem;
+        --str-knap: 1.2rem;
+    }
+}
+
+/* =========================================
+   2. GRUNDINDSTILLINGER
+   ========================================= */
+* {
+    margin: 0;
+    box-sizing: border-box;
 }
 
 header,
@@ -21,55 +53,199 @@ main,
 footer {
     max-width: 960px;
     margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 20px;
 }
 
-.top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
+/* Lister uden punkter og indrykning */
+.timeliste,
+.toejliste,
+.tags,
+.chips {
+    list-style: none;
+    padding: 0;
 }
 
-.hilsen {
-    margin: 0;
-    font-family: var(--skrift-overskrift);
-    font-size: 1.6rem;
+/* =========================================
+   3. TYPOGRAFI
+   ========================================= */
+body {
+    font-family: var(--skrift);
     color: var(--tekst);
 }
 
-.profil-link {
+input,
+button {
+    font: inherit;
+    color: inherit;
+}
+
+h1, h2, h3, p {
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--str-h1);
+    font-weight: 500;
+}
+
+h2 {
+    font-size: var(--str-h2);
+    font-weight: 400;
+}
+
+p,
+label,
+.tag,
+.chip span,
+.felt,
+.temp-felt {
+    font-size: var(--str-p);
+}
+
+.hjaelp,
+.timer-undertitel,
+.toej-navn,
+.temp-label {
+    font-size: var(--str-lille);
+}
+
+.hilsen {
+    font-size: var(--str-hilsen);
+}
+
+.temperatur {
+    font-size: var(--str-temperatur);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+/* =========================================
+   4. FÆLLES KOMPONENTER
+   ========================================= */
+
+/* Runde ikonknapper (profil og tilbage) */
+.profil-link,
+.tilbage-link {
     display: grid;
     place-items: center;
+    flex: none;
     width: 64px;
     height: 64px;
     border-radius: 50%;
     background: var(--lys-blaa);
     color: var(--blaa);
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     transition: background 0.2s;
 }
 
 .profil-link:hover,
-.profil-link:focus-visible {
+.profil-link:focus-visible,
+.tilbage-link:hover,
+.tilbage-link:focus-visible {
     background: var(--blaa);
     color: var(--lys-blaa);
 }
 
-.titel {
-    margin: 8px 0 24px;
-    font-family: var(--skrift-overskrift);
-    font-size: 3rem;
-    text-align: center;
-    font-weight: 500;
+/* Store knapper */
+.knap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: var(--str-knap);
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
+.knap.primaer {
+    border: 0;
+    background: var(--grøn);
+    color: #fff;
+}
+
+.knap.primaer:hover {
+    background: var(--grøn-mørk);
+}
+
+.knap.sekundaer {
+    border: 2px solid var(--grøn);
+    background: none;
+    color: var(--grøn);
+}
+
+.knap.sekundaer:hover {
+    background: var(--lys-blaa);
+}
+
+/* Tags og afkrydsningsmuligheder */
+.tags,
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag,
+.chip span {
+    display: block;
+    padding: 10px 18px;
+    border-radius: 6px;
+}
+
+.tag {
+    background: var(--lys-blaa);
+}
+
+.chip input {
+    position: absolute;
+    opacity: 0;
+}
+
+.chip span {
+    border: 2px dashed var(--blaa);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.chip input:checked + span {
+    border-style: solid;
+    background: var(--blaa);
+    color: #fff;
+}
+
+.chip input:checked + span::before {
+    content: "✓ ";
+}
+
+.chip input:focus-visible + span {
+    outline: 2px solid var(--tekst);
+    outline-offset: 2px;
+}
+
+/* =========================================
+   5. FORSIDEN
+   ========================================= */
+
+/* Header */
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 16px;
+}
+
+.titel {
+    margin: 8px 0 24px;
+    text-align: center;
+}
+
+/* Søgning */
 .soeg-label {
     display: block;
     margin-bottom: 8px;
-    font-family: var(--skrift-overskrift);
-    font-size: 1.2rem;
 }
 
 .soeg-felt {
@@ -80,38 +256,255 @@ footer {
     background: var(--lys-blaa);
 }
 
+.soeg-felt:focus-within {
+    outline: 2px solid var(--blaa);
+    outline-offset: 2px;
+}
+
 .soeg-felt input {
     flex: 1;
     min-width: 0;
     border: none;
-    outline: none; /*Den fjerner border, når man klikker ind*/
-    font-family: var(--skrift-overskrift);
-    font-size: 1.1rem;
-    border-radius: 3px; 
-    padding-left: 0.5em;  
-}
-
-.soeg-ikon {
-    border: 0;
-    background: none;
-    font-size: 1.7rem; 
-}
-.place {
-    color: var(--blaa);
-}
-.pil {
-    color: var(--tekst);
+    outline: none; /* fokus vises i stedet på hele boksen med :focus-within */
+    border-radius: 3px;
+    padding-left: 0.5em;
 }
 
 #soegefelt::-webkit-calendar-picker-indicator {
     display: none !important;
 }
 
+.soeg-ikon {
+    border: 0;
+    background: none;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.place {
+    color: var(--blaa);
+}
+
+/* Vejret lige nu */
+.vejr-nu {
+    position: relative;
+    margin-top: 32px;
+}
+
+.vejr-billede {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.vejr-tekst {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 36px 60px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+/* Timeudsigt og tøjguide deler boks-stil */
+.timer,
+.toejguide {
+    margin-top: 24px;
+    padding: 20px 24px;
+}
+
+.timer {
+    background: var(--blaa);
+    color: #fff;
+}
+
+.timer-undertitel {
+    color: var(--lys-blaa);
+}
+
+.timeliste {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin-top: 20px;
+}
+
+.time,
+.toej {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.time-temp {
+    font-size: var(--str-h2);
+}
+
+.time-ikon {
+    font-size: var(--str-ikon);
+    color: var(--gul);
+}
+
+.time-ikon.fa-cloud-sun {
+    color: #fff;
+}
+
+/* Tøjguide */
+.toejguide {
+    margin-bottom: 40px;
+    background: var(--lys-blaa);
+}
+
+.toejliste {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.toej-cirkel {
+    display: grid;
+    place-items: center;
+    width: 70px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.toej-cirkel img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.toej-navn {
+    text-align: center;
+}
+
+/* =========================================
+   6. PROFILSIDEN
+   ========================================= */
+.profil-top {
+    justify-content: flex-start;
+    gap: 24px;
+}
+
+.profil {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 40px;
+}
+
+.profilbillede {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 8px auto 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Blå bokse */
+.boks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px 24px;
+    border-radius: 8px;
+    background: var(--blaa);
+    color: #fff;
+}
+
+.felt-raekke,
+.temp-felt {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.felt {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 4px;
+    color: var(--tekst);
+    text-align: center;
+}
+
+.felt:focus-visible {
+    outline: 3px solid var(--lys-blaa);
+}
+
+.felt.lille {
+    flex: none;
+    width: 80px;
+}
+
+.temp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.temp-label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Sektioner uden blå baggrund */
+.sektion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hjaelp {
+    opacity: 0.7;
+}
+
+/* "Tilføj mere tøj" som fold-ud */
+.tilfoej summary {
+    list-style: none; /* fjerner den lille trekant */
+}
+
+.tilfoej summary::-webkit-details-marker {
+    display: none; /* fjerner trekanten i Safari */
+}
+
+.tilfoej .fa-plus {
+    transition: transform 0.2s;
+}
+
+.tilfoej[open] .fa-plus {
+    transform: rotate(45deg); /* plusset bliver til et kryds, når den er åben */
+}
+
+.tilfoej-indhold {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 16px;
+}
+
+/* =========================================
+   7. MOBIL-LAYOUT (størrelser styres i :root)
+   ========================================= */
 @media (max-width: 600px) {
-    .hilsen {
-        font-size: 1.3rem;
+    .timer,
+    .toejguide {
+        padding: 16px;
     }
-    .titel {
-        font-size: 2.2rem;
+    .profilbillede {
+        width: 150px;
+        height: 150px;
+    }
+    .temp-grid {
+        grid-template-columns: 1fr;
     }
 }
