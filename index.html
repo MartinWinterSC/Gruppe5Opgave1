@@ -1,21 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="Martin Winther Clausen / Gruppe ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Min vejr ven</title>
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon/">
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/22509d7ca3.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-
+    <header class="top">
+        <p id="hilsen" class="hilsen">Godmorgen, Maja</p>
+        <a href="profil.html" class="profil-link" aria-label="Min profil">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+        </a>
     </header>
     <main>
+        <h1 class="titel">Min vejr ven</h1>
+        <form class="soeg" role="search">
+            <label for="soegefelt" class="soeg-label">Vejret for:</label>
+            <div class="soeg-felt">
+                <button type="button" class="soeg-ikon place" aria-label="Brug min position">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                </button>
+                <input type="search" id="soegefelt" name="sted" list="byer" placeholder="Vælg en by" autocomplete="off">
+                <datalist id="byer">
+                    <option value="København"></option>
+                    <option value="Aarhus"></option>
+                    <option value="Odense"></option>
+                    <option value="Aalborg"></option>
+                    <option value="Esbjerg"></option>
+                </datalist>
+                <button type="button" id="dropdownKnap" class="soeg-ikon pil" aria-label="Vis byer">
+                    <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
+                </button>
+            </div>
+        </form>
 
     </main>
     <footer>
