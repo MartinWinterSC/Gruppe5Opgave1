@@ -237,6 +237,26 @@ label,
     padding-block: 16px;
 }
 
+.top-knapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.login-link {
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: var(--grøn);
+    color: #fff;
+    font-size: var(--str-lille);
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.login-link:hover {
+    background: var(--grøn-mørk);
+}
+
 .titel {
     margin: 8px 0 24px;
     text-align: center;
@@ -351,6 +371,29 @@ label,
 
 .time-ikon.fa-cloud-sun {
     color: #fff;
+}
+
+/* LOGIN side */
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 560px;
+    padding-top: 24px;
+    padding-bottom: 40px;
+}
+
+.login .felt {
+    text-align: left;
+}
+
+.skift-side {
+    text-align: center;
+}
+
+.skift-side a {
+    color: var(--grøn);
+    font-weight: 700;
 }
 
 /* Tøjguide */

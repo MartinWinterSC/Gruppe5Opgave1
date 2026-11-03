@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Opret en profil i Min vejr ven">
+    <meta name="author" content="Gruppe 5">
+    <title>Opret profil – Min vejr ven</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/script.js" defer></script>
+</head>
+<body>
+    <header class="top profil-top">
+        <a href="login.html" class="tilbage-link">
+            <i class="fa-solid fa-chevron-left"></i>
+        </a>
+        <h1>Opret profil</h1>
+    </header>
+
+    <main class="login">
+        <p>Vælg et brugernavn for at oprette en konto.</p>
+
+        <form action="profile.html" class="boks">
+            <div class="felt-raekke">
+                <label for="brugernavn">Brugernavn:</label>
+                <input type="text" id="brugernavn" name="brugernavn" class="felt" required minlength="3">
+            </div>
+            <button type="submit" class="knap primaer">
+                Opret profil <i class="fa-solid fa-user-plus"></i>
+            </button>
+        </form>
+
+        <p class="skift-side">Har du allerede en profil? <a href="login.html">Log ind</a></p>
+    </main>
+</body>
+</html>
