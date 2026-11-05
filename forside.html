@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <meta name="author" content="Martin Winther Clausen / Gruppe ">
+    <meta name="author" content="Gruppe 5">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Min vejr ven</title>
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon/">
@@ -27,7 +27,7 @@
         <form class="soeg" role="search">
             <label for="soegefelt" class="soeg-label">Vejret for:</label>
             <div class="soeg-felt">
-                <button type="button" class="soeg-ikon place" aria-label="Brug min position">
+                <button type="button" class="soeg-ikon place" aria-label="Brug min position" id="refreshLocation">
                     <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                 </button>
                 <input type="search" id="soegefelt" name="sted" list="byer" placeholder="Vælg en by" autocomplete="off">
@@ -45,10 +45,10 @@
         </form>
 
         <section class="vejr-nu" aria-labelledby="temperatur">
-            <img id="vejrbillede" class="vejr-billede" src="./assets/img/pictures/regn.png" alt="">
+            <img id="vejrbillede" class="vejr-billede currentWeatherImage" src="./assets/img/pictures/regn.png" alt="">
             <div class="vejr-tekst">
-                <h2 id="temperatur" class="temperatur">12 grader</h2>
-                <p id="vejrbeskrivelse" class="beskrivelse">Let skyet en smule regn</p>
+                <h2 id="temperatur" class="temperatur"><span class="currentTemp">12</span> grader</h2>
+                <!-- <p id="vejrbeskrivelse" class="beskrivelse">Let skyet en smule regn</p> -->
             </div>
         </section>
 
@@ -59,33 +59,33 @@
             <ol class="timeliste">
                 <li class="time">
                     <span class="time-tid">Nu</span>
-                    <i class="fa-solid fa-cloud-sun time-ikon" aria-hidden="true"></i>
-                    <span class="time-temp">17°</span>
+                    <i class="fa-solid fa-cloud-sun time-ikon" aria-hidden="true" id="iconPlus0"></i>
+                    <span class="time-temp currentTemp">17°</span>
                 </li>
                 <li class="time">
-                    <time class="time-tid">10</time>
-                    <i class="fa-solid fa-sun time-ikon" aria-hidden="true"></i>
-                    <span class="time-temp">18°</span>
+                    <time class="time-tid" id="timePlus1">10</time>
+                    <i class="fa-solid fa-sun time-ikon" aria-hidden="true" id="iconPlus1"></i>
+                    <span class="time-temp" id="tempPlus1">18°</span>
                 </li>
                 <li class="time">
-                    <time class="time-tid">11</time>
-                    <i class="fa-solid fa-sun time-ikon" aria-hidden="true"></i>
-                    <span class="time-temp">21°</span>
+                    <time class="time-tid" id="timePlus2">11</time>
+                    <i class="fa-solid fa-sun time-ikon" aria-hidden="true" id="iconPlus2"></i>
+                    <span class="time-temp" id="tempPlus2">21°</span>
                 </li>
                 <li class="time">
-                    <time class="time-tid">12</time>
-                    <i class="fa-solid fa-sun time-ikon" aria-hidden="true"></i>
-                    <span class="time-temp">23°</span>
+                    <time class="time-tid" id="timePlus3">12</time>
+                    <i class="fa-solid fa-sun time-ikon" aria-hidden="true" id="iconPlus3"></i>
+                    <span class="time-temp" id="tempPlus3">23°</span>
                 </li>
                 <li class="time">
-                    <time class="time-tid">13</time>
-                    <i class="fa-solid fa-sun time-ikon" aria-hidden="true"></i>
-                    <span class="time-temp">24°</span>
+                    <time class="time-tid" id="timePlus4">13</time>
+                    <i class="fa-solid fa-sun time-ikon" aria-hidden="true" id="iconPlus4"></i>
+                    <span class="time-temp" id="tempPlus4">24°</span>
                 </li>
                 <li class="time">
-                    <time class="time-tid">14</time>
-                    <i class="fa-solid fa-sun time-ikon" aria-hidden="true"></i>
-                    <span class="time-temp">25°</span>
+                    <time class="time-tid" id="timePlus5">14</time>
+                    <i class="fa-solid fa-sun time-ikon" aria-hidden="true" id="iconPlus5"></i>
+                    <span class="time-temp" id="tempPlus5">25°</span>
                 </li>
             </ol>
         </section>
