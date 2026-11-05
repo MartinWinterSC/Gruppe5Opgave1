@@ -375,6 +375,7 @@ if (refreshButton) {
 
 // 10. START EVERYTHING
 loadWeather();
+
 // her gemmer vi brugeren
 async function saveUser() {
     const name =document.getElementById("nameInput").value;

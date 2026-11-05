@@ -1,4 +1,4 @@
-
+const path = require("path");
 // her hentes node.js indbyggede http-modul.
 // http gør det muligt at oprette en webserver, som kan modtage forespørgelser fra browseren og sende svar tilbage
 const http = require("http");
@@ -106,7 +106,52 @@ const server = http.createServer((req, res) => {
         });
 
 // her skal indsættes at jeg læser indholdet og henter indhlold fra user.json! altså anvender GET!
-// henter bruger oplysninger her!
+// henter bruger oplysninger her! 
+
+// Serveren undersøger, om browseren efterspørger en fil fra assets-mappen
+    } else if (req.url.startsWith("/assets/")) {
+
+        // Henter filens sti fra URL'en
+        const pathname = decodeURIComponent(
+            new URL(req.url, "http://localhost").pathname
+        );
+    
+        // Finder den faktiske placering af filen på computeren
+        const filePath = path.resolve(__dirname, "." + pathname);
+    
+        // Definerer den mappe, som serveren må hente filer fra
+        const assetsPath = path.resolve(__dirname, "assets");
+    
+        // Kontrollerer, at filen ligger inden for assets-mappen
+        if (!filePath.startsWith(assetsPath + path.sep)) {
+            res.writeHead(403);
+            res.end("Adgang nægtet");
+            return;
+        }
+    
+        // Finder den korrekte filtype ud fra filens endelse
+        const filType = "image/png";
+    
+        // Læser billedfilen
+        fs.readFile(filePath, (err, data) => {
+        
+            if (err) {
+                console.log(err);
+                res.writeHead(err.code === "ENOENT" ? 404 : 500);
+                res.end("Fejl ved indlæsning af fil");
+                return;
+            }
+        
+            // Sender filen med den korrekte indholdstype
+            const filEndelse = path.extname(filePath).toLowerCase();
+        
+            res.writeHead(200, {
+                "Content-Type": filType[filEndelse] || "application/octet-stream"
+            });
+        
+            res.end(data);
+        });    
+    
     } else if (req.url === "/getUsers" && req.method === "GET") {
         fs.readFile("users.json", (err, data) =>{
             if (err) {
