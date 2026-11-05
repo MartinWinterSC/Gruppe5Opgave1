@@ -32,7 +32,24 @@
   {
     "name": "Martin",
     "koldt": 10,
-    "varmt": 20
+    "varmt": 20,
+    "toej": [
+      "nederdel",
+      "t-shirt",
+      "kjole",
+      "sandaler",
+      "solbriller",
+      "kasket",
+      "langaermet-bluse",
+      "let-jakke",
+      "sneakers",
+      "sweater",
+      "vinterjakke",
+      "hue",
+      "halstoerklaede",
+      "vinterstoevler",
+      "regnjakke"
+    ]
   },
   {
     "name": "Henrik",

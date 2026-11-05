@@ -303,6 +303,26 @@ async function loadWeather(forceRefresh = false, cityName = null) {
         // Fetch weather using the chosen coordinates
         const weatherData = await getWeather(location);
 
+        // Hent brugerens præferencer
+        const users = await getUsers();
+
+        const loginName = sessionStorage.getItem("loginUser");
+
+        // Find den bruger, der er logget ind
+        const currentUser = users?.find(user => user.name === loginName);
+
+        // Find tøj der passer til vejret
+        const anbefalinger = getToejAnbefalinger(
+            currentUser,
+            weatherData.current
+        );
+
+        // Vis tøjanbefalingerne i HTML
+        visToejAnbefalinger(anbefalinger);
+
+        // Vis anbefalingerne i konsollen
+        console.log("Tøjanbefalinger:", anbefalinger);
+
         // Update current weather
         updateCurrentWeather(weatherData.current);
 
