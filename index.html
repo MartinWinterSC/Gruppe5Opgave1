@@ -18,14 +18,16 @@
     <main class="login">
         <p>Skriv dit brugernavn for at logge ind.</p>
 
-        <form action="forside.html" class="boks">
+        <form class="boks" onsubmit="event.preventDefault(); login();">
             <div class="felt-raekke">
-                <label for="brugernavn">Brugernavn:</label>
-                <input type="text" name="brugernavn" class="felt">
+                <label for="nameInputlogin">Brugernavn:</label>
+                <!-- tilføjet id som script. js bruger i login funktionen -->
+                <input type="text" id="nameInputlogin" name="brugernavn" class="felt">
             </div>
             <button type="submit" class="knap primaer">
                 Log ind <i class="fa-solid fa-right-to-bracket"></i>
             </button>
+            <p id="loginBesked"></p>
         </form>
 
         <p class="skift-side">Har du ikke en profil? <a href="opret.html">Opret profil</a></p>

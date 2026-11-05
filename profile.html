@@ -12,14 +12,14 @@
 </head>
 <body>
     <header class="top profil-top">
-        <a href="login.html" class="tilbage-link">
+        <a href="forside.html" class="tilbage-link">
             <i class="fa-solid fa-chevron-left"></i>
         </a>
         <h1>Min profil</h1>
     </header>
 
     <main>
-        <form class="profil">
+        <form class="profil" onsubmit="event.preventDefault(); savePref();">
             <img class="profilbillede" src="./assets/img/pictures/profilbillede.png" alt="Profilbillede">
 
             <!-- Navn -->
@@ -55,12 +55,8 @@
             <section class="sektion">
                 <h2>Tøjstil og tilbehør:</h2>
 
-                <ul class="tags">
-                    <li class="tag">Lange bukser</li>
-                    <li class="tag">Shorts</li>
-                    <li class="tag">Gummistøvler</li>
-                    <li class="tag">Vanter</li>
-                    <li class="tag">Paraply</li>
+                <ul class="tags" id="toejListe">
+                 
                 </ul>
 
                 <details class="tilfoej">

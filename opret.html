@@ -21,17 +21,17 @@
     <main class="login">
         <p>Vælg et brugernavn for at oprette en konto.</p>
 
-        <form action="index.html" class="boks">
+        <form class="boks" onsubmit="event.preventDefault(); saveUser();">
             <div class="felt-raekke">
-                <label for="brugernavn">Brugernavn:</label>
-                <input type="text" id="brugernavn" name="brugernavn" class="felt" required minlength="3">
+                <label for="nameInput">Brugernavn:</label>
+                <input type="text" id="nameInput" name="brugernavn" class="felt" required minlength="3">
             </div>
             <button type="submit" class="knap primaer">
                 Opret profil <i class="fa-solid fa-user-plus"></i>
             </button>
         </form>
 
-        <p class="skift-side">Har du allerede en profil? <a href="index.html">Log ind</a></p>
+        <p class="skift-side">Har du allerede en profil? <a href="/">Log ind</a></p>
     </main>
 </body>
 </html>
