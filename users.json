@@ -1,0 +1,60 @@
+[
+  {
+    "name": "Kristina",
+    "koldt": 12,
+    "varmt": 23,
+    "toej": [
+      "kjole",
+      "sandaler",
+      "solbriller",
+      "vinterjakke",
+      "halstoerklaede",
+      "vinterstoevler",
+      "regnjakke"
+    ]
+  },
+  {
+    "name": "Sebastian"
+  },
+  {
+    "name": "Bent",
+    "koldt": 10,
+    "varmt": 25
+  },
+  {
+    "name": "Jens"
+  },
+  {
+    "name": "batman",
+    "koldt": 10,
+    "varmt": 20
+  },
+  {
+    "name": "Martin",
+    "koldt": 10,
+    "varmt": 20
+  },
+  {
+    "name": "Henrik",
+    "koldt": 10,
+    "varmt": 20
+  },
+  {
+    "name": "Ole",
+    "koldt": 10,
+    "varmt": 25
+  },
+  {
+    "name": "Hans Henrik",
+    "koldt": 10,
+    "varmt": 25,
+    "toej": [
+      "sandaler",
+      "solbriller",
+      "langaermet-bluse",
+      "vinterjakke",
+      "hue",
+      "halstoerklaede"
+    ]
+  }
+]
